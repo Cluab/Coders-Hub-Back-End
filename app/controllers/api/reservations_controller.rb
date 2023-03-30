@@ -4,9 +4,14 @@ class Api::ReservationsController < ApplicationController
   def index
     @data = User.find(current_user.id).reservations.map do |reservation|
       {
+        id: reservation.id,
         city: reservation.city,
         date: reservation.date,
-        item_name: reservation.item.name
+        name: reservation.item.name,
+        photo: reservation.item.photo,
+        price: reservation.item.price,
+        mentor_name: reservation.item.mentor_name,
+        duration: reservation.item.duration
       }
     end
 
@@ -17,24 +22,25 @@ class Api::ReservationsController < ApplicationController
     end
   end
 
-   def create
+  def create
+    @reservation = Reservation.new(reservation_params)
+    @reservation.user = @current_user
+    if @reservation.save
+      render json: @reservation, status: :created
+    else
+      render json: @reservation.errors
+    end
+  end
 
-    @reservation = Reservation.create(
-        date:params[:date],
-        city:params[:city],
-        user:current_user,
-        item:current_item
-    )
+  def destroy
+    @reservation = Reservation.find(params[:id])
+    @reservation.destroy
     render json: @reservation
-end
+  end
 
   private
 
-  def current_user
-    User.first
-  end
-
-  def current_item
-    Car.first
+  def reservation_params
+    params.permit(:date, :city, :country, :item_id)
   end
 end
