@@ -1,5 +1,8 @@
 class Reservation < ApplicationRecord
   belongs_to :item
   belongs_to :user
-  validates :date, :city, presence: true
+  validates :date, presence: true
+  validates :city, presence: true
+  validates :item, presence: true
+  validates :user, presence: true
 end
