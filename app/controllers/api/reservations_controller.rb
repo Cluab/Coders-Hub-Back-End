@@ -17,12 +17,24 @@ class Api::ReservationsController < ApplicationController
     end
   end
 
-def create
-  end
+   def create
+
+    @reservation = Reservation.create(
+        date:params[:date],
+        city:params[:city],
+        user:current_user,
+        item:current_item
+    )
+    render json: @reservation
+end
 
   private
 
   def current_user
     User.first
+  end
+
+  def current_item
+    Car.first
   end
 end
