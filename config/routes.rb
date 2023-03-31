@@ -6,10 +6,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      # get 'messages/random', to: 'messages#random'
-      # resources :items, only: [:create]
-      # get 'items/add', to: 'items#add'
-      get 'items/all', to: 'items#all'
+      get 'items', to: 'items#all'
+      post 'items', to: 'items#add'
     end
   end
 end
