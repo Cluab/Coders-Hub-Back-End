@@ -1,17 +1,22 @@
 class Api::V1::ItemsController < ApplicationController
 
-    def all
+    def index
         @items  = Item.all
         render json: @items
     end
 
-    def add
+    def create
         item = Item.new(item_params)
         if item.save
           render json: item, status: :created
         else
           render json: { errors: item.errors.full_messages }, status: :unprocessable_entity
         end
+    end
+
+    def show
+      @item = Item.find(params[:id])
+      render json: @item
     end
 
     private
