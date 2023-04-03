@@ -14,6 +14,7 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   private
+
   def show
     @item = Item.find(params[:id])
     render json: @item

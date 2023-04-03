@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.2'
+ruby '3.1.3'
 
 gem 'rack-cors'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -50,3 +50,6 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
+gem 'tzinfo-data'
+
+gem 'rubocop'
