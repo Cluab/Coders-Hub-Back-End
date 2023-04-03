@@ -14,6 +14,10 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   private
+  def show
+    @item = Item.find(params[:id])
+    render json: @item
+  end
 
   def item_params
     params.require(:item).permit(:name, :description, :photo, :price, :mentor_name, :duration)
