@@ -4,6 +4,7 @@ namespace :api do
         post '/', to: 'registrations#create', as: :user_registration
       end
       post '/items', to: 'items#index', as: :items
+      get '/users/me', to: 'users#me'
   
     #   namespace :android do
     #     resources :books
