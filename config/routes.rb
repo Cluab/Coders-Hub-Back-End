@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'items', to: 'items#index'
       post 'items', to: 'items#create'
-      get 'items', to: 'items#destroy'
+      post 'items', to: 'items#destroy'
     end
   end
 end
