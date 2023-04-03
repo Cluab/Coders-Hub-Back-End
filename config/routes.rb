@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   namespace :api do
+    get 'reservation/show'
     namespace :v1 do
       get 'items', to: 'items#index'
       post 'items', to: 'items#create'
