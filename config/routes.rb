@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'items', to: 'items#index'
       post 'items', to: 'items#create'
+      get 'items/(:id)', to: 'items#show'
     end
   end
 end
