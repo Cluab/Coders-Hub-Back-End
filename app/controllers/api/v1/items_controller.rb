@@ -17,6 +17,11 @@ class Api::V1::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.destroy
     render json: { message: 'Item deleted' }, status: :ok
+    
+  def show
+    @item = Item.find(params[:id])
+    render json: @item
+
   end
 
   private
