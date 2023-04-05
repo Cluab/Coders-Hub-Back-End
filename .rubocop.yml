@@ -7,12 +7,9 @@ AllCops:
     - "Guardfile"
     - "Rakefile"
     - "node_modules/**/*"
-<<<<<<< HEAD
-=======
     - "vendor/**/*"
     - "spec/**/*"
     - "bundle/**/*"
->>>>>>> development
 
   DisplayCopNames: true
 
@@ -63,8 +60,4 @@ Style/HashEachMethods:
 Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
-<<<<<<< HEAD
   Enabled: false
-=======
-  Enabled: false
->>>>>>> development

@@ -1,7 +1,7 @@
 class Api::V1::ReservationsController < ApplicationController
   before_action :set_item, only: [:create]
   # before_action :set_current_user, only: [:create, :show]
-  
+
   def index
     @reservation = Reservation.all
     @reservation = @reservation.sample
@@ -10,7 +10,6 @@ class Api::V1::ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
-
 
     @reservation.item = @item
     @reservation.user = @current_user
@@ -21,19 +20,16 @@ class Api::V1::ReservationsController < ApplicationController
     end
   end
 
-
   def show
     @reservation = Reservation.find(params[:id])
     render json: @reservation
   end
 
-   private
-
+  private
 
   def set_item
     @item = Item.find(params[:item_id])
   end
-
 
   # def set_current_user
   #   @current_user = User.find(session[:user_id])
@@ -41,5 +37,5 @@ class Api::V1::ReservationsController < ApplicationController
 
   def reservation_params
     params.require(:reservation).permit(:date, :city)
-  end 
+  end
 end
