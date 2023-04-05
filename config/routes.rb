@@ -5,13 +5,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-namespace :api do
-  namespace :v1 do
-    resources :items, only: [:index, :create, :show] do
-      resources :reservations, only: [:create]
+  namespace :api do
+    namespace :v1 do
+      get 'items', to: 'items#index'
+      post 'items', to: 'items#create'
+      get 'items/(:id)', to: 'items#show'
     end
-    resources :reservations, only: [:index, :show], controller: 'reservations'
   end
-end
 
 end

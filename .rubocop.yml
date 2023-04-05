@@ -7,6 +7,9 @@ AllCops:
     - "Guardfile"
     - "Rakefile"
     - "node_modules/**/*"
+    - "vendor/**/*"
+    - "spec/**/*"
+    - "bundle/**/*"
 
   DisplayCopNames: true
 
