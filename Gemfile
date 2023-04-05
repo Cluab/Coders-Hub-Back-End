@@ -1,16 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.3'
+ruby '3.0.2'
 
 gem 'rack-cors'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-<<<<<<< HEAD
-gem "rails", "~> 7.0.4", ">= 7.0.4.3"
-gem 'factory_bot_rails'
-=======
 gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
->>>>>>> development
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
@@ -44,14 +39,10 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-<<<<<<< HEAD
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
-=======
   gem 'debug', platforms: %i[mri mingw x64_mingw]
 
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
->>>>>>> development
   gem 'rspec-rails'
 end
 
