@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :item do
     name { 'FRONTEND MASTER' }
     description { 'Clear your doubts in front end developement' }
-    photo { 'Photo' }
+    photo { 'https://dashboard.microverse.org/assets/icon-white-6545162e585bbcd21acdfc30fbb9763ac2a42226c6a436f234a7bc370d4bf50f.png' }
     price { 20 }
     mentor_name { 'John Doe' }
     duration { '2hours' }

@@ -114,9 +114,9 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
-
-    nokogiri (1.14.2-x64-mingw-ucrt)
-
+    nokogiri (1.14.2-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.14.2-x64-unknown)
       racc (~> 1.4)
     nokogiri (1.14.2-x86_64-linux)
       racc (~> 1.4)
@@ -124,7 +124,7 @@ GEM
     parser (3.2.2.0)
       ast (~> 2.4.1)
     pg (1.4.6)
-    pg (1.4.6-x64-mingw-ucrt)
+    pg (1.4.6-x64-unknown)
     puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.6.2)
@@ -214,7 +214,7 @@ GEM
 PLATFORMS
   arm64-darwin-22
   x64-unknown
-  x64-mingw-ucrt
+  x64-unknown
   x86_64-linux
 
 DEPENDENCIES
@@ -231,7 +231,7 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
-   ruby 3.1.3p185
+   ruby 3.0.2p107
 
 BUNDLED WITH
    2.3.5

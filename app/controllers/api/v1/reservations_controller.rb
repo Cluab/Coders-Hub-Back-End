@@ -1,6 +1,6 @@
 class Api::V1::ReservationsController < ApplicationController
   before_action :set_item, only: [:create]
-  # before_action :set_current_user, only: [:create, :show]
+  before_action :set_current_user, only: %i[create show]
 
   def index
     @reservation = Reservation.all
@@ -31,9 +31,9 @@ class Api::V1::ReservationsController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
-  # def set_current_user
-  #   @current_user = User.find(session[:user_id])
-  # end
+  def set_current_user
+    @current_user = User.find(session[:user_id])
+  end
 
   def reservation_params
     params.require(:reservation).permit(:date, :city)
