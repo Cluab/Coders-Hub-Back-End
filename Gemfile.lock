@@ -118,6 +118,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.14.2-x64-unknown)
       racc (~> 1.4)
+    nokogiri (1.14.2-x86_64-darwin)
     nokogiri (1.14.2-x86_64-linux)
       racc (~> 1.4)
     parallel (1.22.1)
@@ -213,8 +214,8 @@ GEM
 
 PLATFORMS
   arm64-darwin-22
-  x64-unknown
-  x64-unknown
+  x64-mingw-ucrt
+  x86_64-darwin-21
   x86_64-linux
 
 DEPENDENCIES
