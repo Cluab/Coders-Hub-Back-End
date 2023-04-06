@@ -27,7 +27,8 @@ gem 'puma', '~> 5.0'
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+# gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
@@ -48,9 +49,7 @@ end
 group :test do
   # A library for setting up Ruby objects as test data [https://github.com/thoughtbot/factory_bot_rails]
   gem 'factory_bot_rails'
-  gem 'factory_bot_rails'
   gem 'rails-controller-testing'
-  gem 'rspec-rails'
 end
 
 group :development do
@@ -67,3 +66,5 @@ gem 'rswag', '~> 2.5'
 
 gem 'rubocop'
 gem 'swagger-blocks', '~> 3.0'
+
+gem "faker", "~> 3.1"

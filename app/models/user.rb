@@ -10,5 +10,8 @@ class User < ApplicationRecord
     user = User.find_for_authentication(email: email)
     user&.valid_password?(password) ? user : nil
   end
+  validates :username, presence: true
+
+  validates :username, length: { minimum: 3, maximum: 70 }
   has_many :reservations
 end
