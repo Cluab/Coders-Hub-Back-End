@@ -19,3 +19,23 @@ end
                      role: User.roles[:admin])
 
 Item.create(name: 'Item 1', description: 'Item 1 description', price: 10)
+
+Item.create(name: "Item 1", 
+photo: "https://avatars.githubusercontent.com/u/53082877?s=400&u=8432a4860f75013af57e50bbbd974a89e51e94c9&v=4", 
+description: "This is item 1")
+Item.create(name: "Item 2", 
+photo: "https://avatars.githubusercontent.com/u/53082877?s=400&u=8432a4860f75013af57e50bbbd974a89e51e94c9&v=4", 
+description: "This is item 2")
+Item.create(name: "Item 3", 
+photo: "https://avatars.githubusercontent.com/u/53082877?s=400&u=8432a4860f75013af57e50bbbd974a89e51e94c9&v=4", 
+description: "This is item 3")
+Item.create(name: "Item 4", 
+photo: "https://avatars.githubusercontent.com/u/53082877?s=400&u=8432a4860f75013af57e50bbbd974a89e51e94c9&v=4", 
+description: "This is item 4")
+Item.create(name: "Item 5", 
+photo: "https://avatars.githubusercontent.com/u/53082877?s=400&u=8432a4860f75013af57e50bbbd974a89e51e94c9&v=4", 
+description: "This is item 5")
+
+
+
+

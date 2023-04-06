@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.2'
 
 gem 'rack-cors'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
 
@@ -47,12 +48,16 @@ end
 group :test do
   # A library for setting up Ruby objects as test data [https://github.com/thoughtbot/factory_bot_rails]
   gem 'factory_bot_rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails'
 end
 
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
+gem 'tzinfo-data'
 
 gem 'devise', '~> 4.9'
 
@@ -60,4 +65,5 @@ gem 'doorkeeper', '~> 5.6'
 
 gem 'rswag', '~> 2.5'
 
+gem 'rubocop'
 gem 'swagger-blocks', '~> 3.0'
