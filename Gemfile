@@ -4,7 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.2'
 
 gem 'rack-cors'
-# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
@@ -41,11 +40,16 @@ gem 'bootsnap', require: false
 # gem "rack-cors"
 
 group :development, :test do
+  # Required for RSpec specs
+  gem 'rspec-rails'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+end
+
+group :test do
+  # A library for setting up Ruby objects as test data [https://github.com/thoughtbot/factory_bot_rails]
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
-  gem 'rspec-rails'
 end
 
 group :development do
@@ -54,4 +58,13 @@ group :development do
 end
 gem 'tzinfo-data'
 
+gem 'devise', '~> 4.9'
+
+gem 'doorkeeper', '~> 5.6'
+
+gem 'rswag', '~> 2.5'
+
 gem 'rubocop'
+gem 'swagger-blocks', '~> 3.0'
+
+gem 'faker', '~> 3.1'
