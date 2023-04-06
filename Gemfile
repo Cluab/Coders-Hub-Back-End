@@ -67,4 +67,4 @@ gem 'rswag', '~> 2.5'
 gem 'rubocop'
 gem 'swagger-blocks', '~> 3.0'
 
-gem "faker", "~> 3.1"
+gem 'faker', '~> 3.1'
