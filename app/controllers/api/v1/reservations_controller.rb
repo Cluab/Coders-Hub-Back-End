@@ -20,6 +20,12 @@ class Api::V1::ReservationsController < ApplicationController
     end
   end
 
+  def destroy
+    reservation = Reservation.find(params[:id])
+    reservation.destroy
+    render json: { message: 'Reservation deleted' }, status: :ok
+  end
+
   def show
     @reservation = Reservation.find(params[:id])
     render json: @reservation
