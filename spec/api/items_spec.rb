@@ -22,9 +22,9 @@ RSpec.describe Api::V1::ItemsController, type: :controller do
             name: "Mancoba",
             photo: "https://avatars.githubusercontent.com/u/53082877?s=400&u=8432a4860f75013af57e50bbbd974a89e51e94c9&v=4",
             description: "This is the last class item",
-            price: nil,
-            mentor_name: "",
-            duration: nil
+            price: 20,
+            mentor_name: "Front-End Mentor",
+            duration: "2hours"
           }
         end
   
