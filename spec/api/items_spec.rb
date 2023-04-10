@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::ItemsController, type: :controller do
   let(:user) { FactoryBot.create(:user) }
+  let(:application) { Doorkeeper::Application.create!(name: "MyApp", redirect_uri: "urn:ietf:wg:oauth:2.0:oob") }
 
     describe "GET #index" do
      it "returns a success response" do
