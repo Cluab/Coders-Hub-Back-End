@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.describe Api::V1::ItemsController, type: :controller do
   let(:user) { FactoryBot.create(:user) }
   let(:application) { Doorkeeper::Application.create!(name: "MyApp", redirect_uri: "urn:ietf:wg:oauth:2.0:oob") }
-
-    describe "GET #index" do
+  let(:access_token) { Doorkeeper::AccessToken.create(resource_owner_id: user.id, application_id: application.id).token }
+    
+  describe "GET #index" do
      it "returns a success response" do
         get :index
         expect(response).to be_successful
