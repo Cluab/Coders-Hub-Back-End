@@ -20,10 +20,15 @@ class Api::V1::ReservationsController < ApplicationController
     end
   end
 
+  # DELETE /reservations/1
   def destroy
-    reservation = Reservation.find(params[:id])
-    reservation.destroy
-    render json: { message: 'Reservation deleted' }, status: :ok
+    @reservation = Reservation.find(params[:id])
+
+    if @reservation.destroy
+      render json: { message: 'Reservation deleted' }
+    else
+      render json: @reservation.errors, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -42,6 +47,6 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:date, :city)
+    params.require(:reservation).permit(:date, :city, :user_id)
   end
 end
