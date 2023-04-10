@@ -1,0 +1,22 @@
+current directory: /Users/omarbabou/Desktop/Book-An-Appointment-Back-End/vendor/bundle/ruby/3.1.0/gems/date-3.3.3/ext/date
+/Users/omarbabou/.rvm/rubies/ruby-3.1.3/bin/ruby -I /Users/omarbabou/.rvm/rubies/ruby-3.1.3/lib/ruby/3.1.0 extconf.rb
+checking for rb_category_warn()... yes
+checking for timezone in time.h with  -Werror... yes
+checking for altzone in time.h with  -Werror... no
+creating Makefile
+
+current directory: /Users/omarbabou/Desktop/Book-An-Appointment-Back-End/vendor/bundle/ruby/3.1.0/gems/date-3.3.3/ext/date
+make DESTDIR\= sitearchdir\=./.gem.20230410-3720-7gmxmf sitelibdir\=./.gem.20230410-3720-7gmxmf clean
+
+current directory: /Users/omarbabou/Desktop/Book-An-Appointment-Back-End/vendor/bundle/ruby/3.1.0/gems/date-3.3.3/ext/date
+make DESTDIR\= sitearchdir\=./.gem.20230410-3720-7gmxmf sitelibdir\=./.gem.20230410-3720-7gmxmf
+compiling date_core.c
+compiling date_parse.c
+compiling date_strftime.c
+compiling date_strptime.c
+linking shared-object date_core.bundle
+ld: warning: -undefined dynamic_lookup may not work with chained fixups
+
+current directory: /Users/omarbabou/Desktop/Book-An-Appointment-Back-End/vendor/bundle/ruby/3.1.0/gems/date-3.3.3/ext/date
+make DESTDIR\= sitearchdir\=./.gem.20230410-3720-7gmxmf sitelibdir\=./.gem.20230410-3720-7gmxmf install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 date_core.bundle ./.gem.20230410-3720-7gmxmf
