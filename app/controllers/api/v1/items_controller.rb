@@ -1,8 +1,11 @@
-class Api::V1::ItemsController < ApplicationController
-  def index
-    @items = Item.all
-    render json: @items
-  end
+module Api
+  module V1
+    class ItemsController < ApiController
+      # before_action :set_item, only: %i[show edit update destroy]
+      def index
+        @items = Item.all
+        render json: @items
+      end
 
   def show
     @item = Item.find(params[:id])
@@ -29,7 +32,7 @@ class Api::V1::ItemsController < ApplicationController
     end
   end
 
-  private
+      private
 
   def item_params
     params.require(:item).permit(:name, :description, :photo, :price, :mentor_name, :duration, :user_id)
