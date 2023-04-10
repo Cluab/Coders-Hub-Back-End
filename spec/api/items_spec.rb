@@ -6,6 +6,12 @@ RSpec.describe Api::V1::ItemsController, type: :controller do
   let(:access_token) { Doorkeeper::AccessToken.create(resource_owner_id: user.id, application_id: application.id).token }
     
   describe "GET #index" do
+  before do
+    get api_v1_items_path, headers: {
+      Authorization: "Bearer #{access_token}"
+    }
+  end
+
      it "returns a success response" do
         get :index
         expect(response).to be_successful
