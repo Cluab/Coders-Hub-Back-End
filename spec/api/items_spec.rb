@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::ItemsController, type: :controller do
+  let(:user) { FactoryBot.create(:user) }
+
     describe "GET #index" do
      it "returns a success response" do
         get :index
