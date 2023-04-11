@@ -8,8 +8,8 @@ namespace :api do
       post 'items', to: 'items#create'
       post 'items', to: 'items#destroy'
       get 'items/(:id)', to: 'items#show'
-      get 'items/(:id)/reservations', to: 'reservations#index'
-      post 'items/(:id)/reservations', to: 'reservations#create'
+      get 'user/reservations', to: 'reservations#index'
+      post 'user/reserve', to: 'reservations#create'
       get 'client/react'
     end
   end
