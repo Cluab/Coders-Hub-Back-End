@@ -1,10 +1,10 @@
 module Api
   module V1
-    class UsersController < ApiController
-      skip_before_action :doorkeeper_authorize!, only: %i[create]
+    class ClintController < ApiController
+      skip_before_action :doorkeeper_authorize!, only: %i[react]
 
       # GET /clint.json
-      def clint
+      def react
         @react_clint = Doorkeeper::Application.find_by(name: 'React')
         if @react_clint.nil?
           render json: { error: 'no React Clint Present' }, status: :unprocessable_entity
@@ -17,7 +17,7 @@ module Api
             redirect_uri: @react_clint.redirect_uri,
             scopes: @react_clint.scopes,
             confidential: @react_clint.confidential,
-            created_at: @current_user.created_at.iso8601
+            created_at: @react_clint.created_at.iso8601
           }, status: :ok
         end
       end

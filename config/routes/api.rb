@@ -10,6 +10,7 @@ namespace :api do
       get 'items/(:id)', to: 'items#show'
       get 'items/(:id)/reservations', to: 'reservations#index'
       post 'items/(:id)/reservations', to: 'reservations#create'
+      get 'clint/react'
     end
   end
   
