@@ -7,6 +7,11 @@ module Api
         render json: @items
       end
 
+      def show
+        @item = Item.find(params[:id])
+        render json: @item
+      end
+
       def create
         item = Item.new(item_params)
         if item.save
@@ -16,21 +21,21 @@ module Api
         end
       end
 
+      # DELETE /items/1
       def destroy
         @item = Item.find(params[:id])
-        @item.destroy
-        render json: { message: 'Item deleted' }, status: :ok
-      end
-
-      def show
-        @item = Item.find(params[:id])
-        render json: @item
+        # refressh id
+        if @item.destroy
+          render json: { message: 'Item deleted' }
+        else
+          render json: @reservation.errors, status: :unprocessable_entity
+        end
       end
 
       private
 
       def item_params
-        params.require(:item).permit(:name, :description, :photo, :price, :mentor_name, :duration)
+        params.require(:item).permit(:name, :description, :photo, :price, :mentor_name, :duration, :user_id)
       end
     end
   end
