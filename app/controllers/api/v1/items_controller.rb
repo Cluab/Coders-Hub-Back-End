@@ -2,14 +2,18 @@ module Api
   module V1
     class ItemsController < ApiController
       # before_action :set_item, only: %i[show edit update destroy]
+      before_action :doorkeeper_authorize!
+      before_action :current_user
+      respond_to :json
+
       def index
         @items = Item.all
-        render json: @items
+        render json: @items, status: :ok
       end
 
       def show
         @item = Item.find(params[:id])
-        render json: @item
+        render json: @item, status: :ok
       end
 
       def create
