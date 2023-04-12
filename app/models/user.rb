@@ -13,5 +13,9 @@ class User < ApplicationRecord
   validates :username, presence: true
 
   validates :username, length: { minimum: 3, maximum: 70 }
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
+
+  def admin?
+    role == 'admin'
+  end
 end

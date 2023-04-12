@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
-  validates :name, :photo, :description, :price, presence: true
+  has_many :reservations, dependent: :destroy
 
+  validates :name, :photo, :description, :price, presence: true
   validates :name, length: { minimum: 3, maximum: 70 }
   validates :photo, length: { minimum: 3, maximum: 5_000 }
   validates :description, length: { minimum: 3, maximum: 1_000 }

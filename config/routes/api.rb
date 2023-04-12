@@ -6,7 +6,7 @@ namespace :api do
       get '/users/me', to: 'users#me'
       get '/items', to: 'items#index', as: :items
       post 'items', to: 'items#create'
-      post 'items', to: 'items#destroy'
+      delete 'items/:id', to: 'items#destroy'
       get 'items/(:id)', to: 'items#show'
       get 'user/reservations', to: 'reservations#index'
       post 'user/reserve', to: 'reservations#create'
