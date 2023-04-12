@@ -16,14 +16,14 @@ RSpec.describe Api::V1::ReservationsController, type: :request do
       Authorization: "Bearer #{access_token}"
     }
   end
-  
+
   describe 'POST #create' do
     context 'with valid params' do
       it 'creates a new reservation' do
         expect(response).to have_http_status(:created)
       end
     end
-    
+
     context 'with invalid params' do
       it 'returns an error message' do
         post api_v1_user_reserve_path, params: {
@@ -32,7 +32,7 @@ RSpec.describe Api::V1::ReservationsController, type: :request do
         }, headers: {
           Authorization: "Bearer #{access_token}"
         }
-        
+
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end

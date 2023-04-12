@@ -95,26 +95,24 @@ RSpec.describe Api::V1::ItemsController, type: :request do
   describe 'DELETE #destroy' do
     context 'when authorized' do
       let(:item) { FactoryBot.create(:item) }
-  
+
       before do
         delete "/api/v1/items/#{item.id}", headers: {
           Authorization: "Bearer #{access_token}"
         }
       end
-  
+
       it 'deletes the item' do
         expect(Item.exists?(item.id)).to be_falsey
-      end  
+      end
       it 'returns a success response' do
         expect(response).to have_http_status(:success)
       end
-  
+
       it 'returns a JSON response with a success message' do
         expect(response.content_type).to eq('application/json; charset=utf-8')
         expect(response.body).to include('Item deleted')
       end
     end
-  
   end
-  
 end
