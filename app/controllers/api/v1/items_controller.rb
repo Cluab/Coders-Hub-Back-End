@@ -5,7 +5,7 @@ module Api
       before_action :doorkeeper_authorize!
       before_action :current_user
       respond_to :json
-
+      
       def index
         @items = Item.all
         render json: @items, status: :ok
@@ -17,22 +17,31 @@ module Api
       end
 
       def create
-        item = Item.new(item_params)
-        if item.save
-          render json: item, status: :created
+        if @current_user.admin?
+          item = Item.new(item_params)
+          if item.save
+            render json: item, status: :created
+          else
+            render json: { errors: item.errors.full_messages }, status: :unprocessable_entity
+          end
+
         else
-          render json: { errors: item.errors.full_messages }, status: :unprocessable_entity
+          render json: { error: 'Not Authorized' }, status: :unauthorized
         end
       end
 
       # DELETE /items/1
       def destroy
-        @item = Item.find(params[:id])
-        # refressh id
-        if @item.destroy
-          render json: { message: 'Item deleted' }
+        if @current_user.admin?
+          @item = Item.find(params[:id])
+          # refressh id
+          if @item.destroy
+            render json: { message: 'Item deleted' }
+          else
+            render json: @reservation.errors, status: :unprocessable_entity
+          end
         else
-          render json: @reservation.errors, status: :unprocessable_entity
+          render json: { error: 'Not Authorized' }, status: :unauthorized
         end
       end
 
