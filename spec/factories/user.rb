@@ -1,7 +1,8 @@
-# Define a new factory for user
-# In future can be added more attributes for authentication.
 FactoryBot.define do
-  factory :user1, class: User do
-    username { 'Alex' }
+  factory :user do
+    username { 'MyString' }
+    role { 'admin' }
+    email { 'MrC@example.com' }
+    password { 'password' }
   end
 end

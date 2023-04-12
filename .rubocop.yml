@@ -8,7 +8,7 @@ AllCops:
     - "Rakefile"
     - "node_modules/**/*"
     - "vendor/**/*"
-    - "spec/**/*"
+    # - "spec/**/*"
     - "bundle/**/*"
 
   DisplayCopNames: true

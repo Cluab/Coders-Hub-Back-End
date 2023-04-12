@@ -5,14 +5,15 @@ module Api
       before_action :doorkeeper_authorize!
       before_action :current_user
       respond_to :json
+
       def index
         @items = Item.all
-        render json: @items
+        render json: @items, status: :ok
       end
 
       def show
         @item = Item.find(params[:id])
-        render json: @item
+        render json: @item, status: :ok
       end
 
       def create
