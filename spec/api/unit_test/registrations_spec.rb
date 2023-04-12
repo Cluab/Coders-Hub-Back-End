@@ -8,9 +8,9 @@ RSpec.describe Api::V1::Users::RegistrationsController, type: :controller do
   describe 'POST #create' do
     context 'with valid attributes' do
       it 'creates a new user' do
-        expect {
+        expect do
           post :create, params: valid_attributes
-        }.to change(User, :count).by(1)
+        end.to change(User, :count).by(1)
       end
 
       it 'returns a successful response' do
@@ -21,9 +21,9 @@ RSpec.describe Api::V1::Users::RegistrationsController, type: :controller do
 
     context 'with invalid attributes' do
       it 'does not create a new user' do
-        expect {
+        expect do
           post :create, params: invalid_attributes
-        }.not_to change(User, :count)
+        end.not_to change(User, :count)
       end
 
       it 'returns an error response' do
