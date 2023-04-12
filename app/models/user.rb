@@ -16,6 +16,6 @@ class User < ApplicationRecord
   has_many :reservations, dependent: :destroy
 
   def admin?
-    role == 'admin'
+    self.role === 'admin'
   end
 end
