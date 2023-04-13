@@ -54,6 +54,12 @@ To run the project, execute the following command:
 
 `rails s`
 
+### Run tests
+To run tests, run the following command:
+Example command:
+
+`rspec`
+
 ### Deployment
 
 You can deploy this project using:
@@ -110,7 +116,7 @@ _For more Info on how to use the API, please refer to the [Coders Hub API Docume
 
 👉 [Kanban board Development link](https://github.com/Cluab/Book-An-Appointment-Back-End/issues/21)
 
-👉 This project was authored by <a href="#authors">Four contributors</a> as described in the the Authors section bellow.
+👉 This project was authored by <a href="#authors">Five contributors</a> as described in the the Authors section bellow.
 
 👉 Please use this [link](https://github.com/manq2010/Book-An-Appointment-Front-End) to go to the front-end part of this project.
 
