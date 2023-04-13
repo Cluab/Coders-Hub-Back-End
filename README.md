@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="logo.png" alt="logo" width="300" height="auto" />
+  <img src="app/assets/image/logo.png" alt="logo" width="300" height="auto" />
   <br/>
   <h1>Coders Hub Back-End</h1>
   <h3>The Coders Hub Back-End project is a Ruby on Rails API that allows users to book an appointment for coding classes. </h3>
@@ -14,8 +14,6 @@
 The Coders Hub Back-End project is a Ruby on Rails API that allows users to book an appointment for coding classes. It includes user authentication and authorization using the Doorkeeper gem, which ensures that users must be authenticated before accessing protected resources.
 
 ### Built With
-
-The Hello(API) App was built with:
 
 - Ruby On Rails
 - PostgreSQL
@@ -38,7 +36,7 @@ To run this project, you'll need to install:
 
 `git@github.com:Cluab/Book-An-Appointment-Back-End.git`
 
-`cd hello-rails-react`
+`cd Book-An-Appointment-Back-End`
 
 2. Install the required gems:
 
@@ -73,13 +71,38 @@ You can deploy this project using:
 - LinkedIn: [Ebrahim Al-Yousefi](https://www.linkedin.com/in/ebrahim-alyousefi/)
 - Instagram: [@27.i.b](https://www.instagram.com/27.i.b/)
 
+👤 **Mancoba Sihlongonyane**
+
+- GitHub: [@manq2010](https://github.com/manq2010/)
+- Twitter: [@mancoba_c](https://twitter.com/mancoba_c/)
+- LinkedIn: [mancobasihlongonyane](https://linkedin.com/in/mancobasihlongonyane/)
+
+👤 **Krishna Prasad Acharya**
+
+- GitHub: [@krishnabot](https://github.com/Krishnabot)
+- Twitter: [@last_matrix](https://twitter.com/last_matrix)
+- LinkedIn: [@Krishnabot](https://www.linkedin.com/in/krishnabot/)
+
+👤 **Frehiywot Nega**
+
+- GitHub: [@frnega](hhttps://github.com/frnega)
+- Twitter: [@twitter](https://twitter.com/twitter)
+- LinkedIn: [@frehiywot-nega](https://www.linkedin.com/in/frehiywot-nega/)
+
+👤 **Idrissa makoba omar**
+
+- GitHub: [omarbabou](https://github.com/omarbabou)
+- LinkedIn: [Idrissa makoba omar](https://www.linkedin.com/in/idrissa-makoba-omar/)
+- twitter: [BabouOmar3](https://twitter.com/BabouOmar3)
+
+
 ## Future Features
 
-- Add user confirmation
+- Add user email confirmation
 
 ## Usage
 
-_For more Info on how to use the API, please refer to the [Coders Hub API Documentation]()_
+_For more Info on how to use the API, please refer to the [Coders Hub API Documentation](https://coders-hub.onrender.com/documentation/authentication)_
 
 ## Kanban board
 
