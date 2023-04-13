@@ -1,0 +1,39 @@
+<div class="home pt-8 align-items-center p-4 vh-100">
+  <%= render partial: "documentation/navigation" %>
+  <div class="d-flex" style= "margin-top:100px">
+  <section class="max-w-600 self-start d-flex flex-column">
+    <h1 class="text-3xl font-weight-bold mb-4">Welcome to the Coders Hub API Documentation</h1>
+    <h2 class="text-xl font-weight-bold mb-2 ml-2">What is the Mentor Plus API?</h2>
+    <p class="px-4 py-2">
+      Our API is organized with
+      <a class="text-blue-500 hover:text-blue-700 underline"
+        href="https://en.wikipedia.org/wiki/Representational_state_transfer"
+        target="_blank"
+      >
+        REST.
+      </a>
+      Our API has predictable resource-oriented URLs, accepts form-encoded
+      request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and
+      verbs.
+    </p>
+    <p class="px-4 py-2">
+      It's a simple API that is linked to the
+      <a class="text-blue-500 hover:text-blue-700 underline"
+        href = "https://codershub-8u8o.onrender.com/"
+        target="_blank"
+      >
+        Book-An-Appointment-FrontEnd
+      </a>. It holds all the data for the frontend to display, as well as the information of
+      the users <em>(Usernames, Emails & Passwords)</em>.
+    </p>
+  </section>
+  <section class="self-start p-2 w-37 h-100  d-flex flex-column justify-content-start align-items-start">
+    <div class="base-url mb-8 bg-dark text-white rounded-lg w-100">
+      <h3 class="text-xl font-weight-bold text-center p-2">Base URL</h3>
+      <p class="px-4 py-2 bg-white text-center">
+        <span class="text-primary font-monospace">https://coders-hub.onrender.com/api/v1/</span>
+      </p>
+    </div>
+  </section>
+  </div>
+</div>
