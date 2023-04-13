@@ -1,0 +1,217 @@
+<div class="home pt-8 items-center ml-60 p-4 h-screen">
+  <%= render partial: "documentation/navigation" %>
+    <div class="d-flex" style= "margin-top:100px">
+
+  <section class="max-w-[800px] self-start flex flex-col">
+    <h1 class="text-3xl font-bold mb-4">Users Endpoints</h1>
+<div class="container mt-5">
+  <h2 class="text-xl font-bold mb-2">GET users/me</h2>
+  <p class="px-4 py-2">Retrieves current  user in the system.</p>
+
+  <div class="px-4 pt-6">
+    <h3 class="text-2xl font-bold mb-2">Response</h3>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="px-4 py-2">Status Code</th>
+            <th class="px-4 py-2">Response Body</th>
+            <th class="px-4 py-2">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border px-4 py-2"><code>200</code></td>
+            <td class="border px-4 py-2 font-weight-bold text-sm">
+              <code>
+                  {
+                    "username": "admin",
+                    "id": 1,
+                    "email": "admin@example.com",
+                    "role": "admin",
+                    "created_at": "2023-04-10T07:54:13Z"
+                    },
+    
+              </code>
+            </td>
+            <td class="border px-4 py-2">Current  user in the system</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="px-4 pt-6">
+    <h3 class="text-2xl font-bold mb-2">Example Request</h3>
+    <div class="card bg-dark border-0 rounded-xl mx-4 my-6">
+      <h3 class="card-header bg-white text-dark font-bold">Ruby</h3>
+      <div class="card-body bg-white rounded-xl">
+        <pre class="m-0 bg-light">
+          <code class="text-sm  max-h-80 m-0">
+                        require 'net/http'
+                        require 'json'
+
+                        url = URI('https://example.com/users/v1')
+                        headers = {
+                        'Authorization' => 'Bearer <DoorKeeper Token>'
+                          }
+
+                        http = Net::HTTP.new(url.host, url.port)
+                        http.use_ssl = true // enable HTTPS if necessary
+
+                        request = Net::HTTP::Get.new(url, headers)
+
+                        response = http.request(request)
+
+                        if response.code == '200'
+                        data = JSON.parse(response.body)
+                        // handle the response data here
+                        else
+                        puts "Error: #{response.code} #{response.message}"
+                        // handle the error here
+                        end
+          </code>
+        </pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+ <div class="container mt-5">
+  <h2 class="text-xl font-bold mb-2">POST /users</h2>
+  <p class="px-4 py-2">Creates a new user in the system</p>
+
+  <div class="px-4 pt-6">
+   <div class="px-4 pt-6">
+    <h3 class="text-lg font-bold mb-2">Parameters</h3>
+    <div class="table-responsive">
+      <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">Name</th>
+                    <th class="px-4 py-2">Data Type</th>
+                    <th class="px-4 py-2">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border px-4 py-2">username</td>
+                    <td class="border px-4 py-2">String</td>
+                    <td class="border px-4 py-2">Username of the new user</td>
+                </tr>
+                                <tr>
+                    <td class="border px-4 py-2">email</td>
+                    <td class="border px-4 py-2">String</td>
+                    <td class="border px-4 py-2">The email address of the new user</td>
+                </tr>
+                                <tr>
+                    <td class="border px-4 py-2">password</td>
+                    <td class="border px-4 py-2">String</td>
+                    <td class="border px-4 py-2">The password of the new user</td>
+                </tr>
+                <tbody>
+                </table>
+    <div class="table-responsive">
+        <h3 class="text-2xl font-bold mb-2">Response</h3>
+
+      <table class="table ">
+        <thead>
+          <tr>
+            <th class="px-4 py-2">Status Code</th>
+            <th class="px-4 py-2">Response Body</th>
+            <th class="px-4 py-2">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border px-4 py-2"><code>200</code></td>
+            <td class="border px-4 py-2 font-weight-bold text-sm">
+              <code>
+                  {
+                    "id": 5,
+                    "email": "example@johndoe.com",
+                    "role": "user",
+                    "username": "John",
+                    "access_token": "vz3gvlmNoKeaN6hzQmgZsXzEYWMS1GshMsRxq6gLe6k",
+                    "token_type": "Bearer",
+                    "expires_in": 7200,
+                    "refresh_token": "c57c5e5bb772d5a4cdd44cda64e48d37a09340bee393212ae7e861d7e781e51a",
+                    "created_at": 1681361253
+                    }
+              </code>
+            </td>
+            <td class="border px-4 py-2">The user is created with Outh Token</td>
+          </tr>
+                    <tr>
+            <td class="border px-4 py-2"><code>422</code></td>
+            <td class="border px-4 py-2 font-weight-bold text-sm">
+              <code>
+                  {
+                    "errors": {
+                        "email": [
+                            "has already been taken"
+                        ],
+                        "username": [
+                            "can't be blank",
+                            "is too short (minimum is 3 characters)"
+                        ]
+                    }
+                    }
+              </code>
+            </td>
+            <td class="border px-4 py-2">The user could not be created because of validation errors</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="px-4 pt-6">
+    <h3 class="text-2xl font-bold mb-2">Example Request</h3>
+    <div class="card bg-dark border-0 rounded-xl mx-4 my-6">
+      <h3 class="card-header bg-white text-dark font-bold">Ruby</h3>
+      <div class="card-body bg-white rounded-xl">
+        <pre class="m-0 bg-light">
+          <code class="text-sm  max-h-80 m-0">
+            require 'net/http'
+            require 'json'
+
+            url = URI('http://127.0.0.1:3000/api/v1/users')
+            headers = {
+              'Content-Type' => 'application/json'
+            }
+            user_data = {
+              username: 'john',
+              email: 'example@johndoe.com',
+              password: '123456'
+            }
+            payload = JSON.generate(user_data)
+
+            http = Net::HTTP.new(url.host, url.port)
+            http.use_ssl = true # enable HTTPS if necessary
+
+            request = Net::HTTP::Post.new(url, headers)
+            request.body = payload
+
+            response = http.request(request)
+
+            if response.code == '200'
+              data = JSON.parse(response.body)
+              # handle the response data here
+            else
+              puts "Error: #{response.code} #{response.message}"
+              # handle the error here
+            end
+
+          </code>
+        </pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </section>
+  </div>
+</div>

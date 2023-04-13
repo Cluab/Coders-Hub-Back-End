@@ -1,0 +1,250 @@
+<div class="home pt-8 items-center ml-60 p-4 h-screen">
+  <%= render partial: "documentation/navigation" %>
+    <div class="d-flex" style= "margin-top:100px">
+
+  <section class="max-w-[800px] self-start flex flex-col">
+    <h1 class="text-3xl font-bold mb-4">Reservations Endpoints</h1>
+<div class="container mt-5">
+  <h2 class="text-xl font-bold mb-2">GET /user/reservations</h2>
+  <p class="px-4 py-2">Returns a list of all Reservations.</p>
+
+  <div class="px-4 pt-6">
+    <h3 class="text-2xl font-bold mb-2">Response</h3>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="px-4 py-2">Status Code</th>
+            <th class="px-4 py-2">Response Body</th>
+            <th class="px-4 py-2">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border px-4 py-2"><code>200</code></td>
+            <td class="border px-4 py-2 font-weight-bold text-sm">
+              <code>
+   {
+        "id": 3,
+        "item_id": 2,
+        "user_id": 1,
+        "date": "2023-04-22",
+        "city": "NewYork",
+        "created_at": "2023-04-11T15:55:45.885Z",
+        "updated_at": "2023-04-11T15:55:45.885Z"
+    },
+    <br>
+    <br>
+    {
+        "id": 4,
+        "item_id": 2,
+        "user_id": 1,
+        "date": "2023-05-03",
+        "city": "eeeee",
+        "created_at": "2023-04-11T15:56:21.165Z",
+        "updated_at": "2023-04-11T15:56:21.165Z"
+    },
+    <br>
+    <br>
+    {
+        "id": 5,
+        "item_id": 2,
+        "user_id": 1,
+        "date": "2023-04-13",
+        "city": "sjsjsjks",
+        "created_at": "2023-04-11T17:23:59.421Z",
+        "updated_at": "2023-04-11T17:23:59.421Z"
+    },
+    <br>
+    <br>
+    {
+        "id": 6,
+        "item_id": 2,
+        "user_id": 1,
+        "date": "2023-04-20",
+        "city": "hell",
+        "created_at": "2023-04-11T18:55:06.151Z",
+        "updated_at": "2023-04-11T18:55:06.151Z"
+    }
+              </code>
+            </td>
+            <td class="border px-4 py-2">A list of all reservation for the logged in users  in the system</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="px-4 pt-6">
+    <h3 class="text-2xl font-bold mb-2">Example Request</h3>
+    <div class="card bg-dark border-0 rounded-xl mx-4 my-6">
+      <h3 class="card-header bg-white text-dark font-bold">Ruby</h3>
+      <div class="card-body bg-white rounded-xl">
+        <pre class="m-0 bg-light">
+          <code class="text-sm  max-h-80 m-0">
+                  require 'net/http'
+                  require 'json'
+
+                  url = URI('http://127.0.0.1:3000/api/v1/users')
+                   headers = {
+                  require 'net/http'
+
+                  # Set the URL and headers
+                  url = URI('http://127.0.0.1:3000/api/v1/user/reservations')
+                  headers = {
+                    'Authorization' => 'Bearer < Token >'
+                  }
+
+                  # Create a new HTTP object
+                  http = Net::HTTP.new(url.host, url.port)
+
+                  # Enable HTTPS if necessary
+                  http.use_ssl = (url.scheme == 'https')
+
+                  # Create a new GET request with the headers
+                  request = Net::HTTP::Get.new(url, headers)
+
+                  # Send the request and get the response
+                  response = http.request(request)
+
+                  case response.code
+                  when '200'
+                    # Handle successful response
+                    puts response.body
+                  when '401'
+                    # Handle unauthorized error
+                    puts 'Error: Unauthorized'
+                  else
+                    # Handle other errors
+                    puts "Error: #{response.code} #{response.message}"
+                  end          </code>
+        </pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="container mx-auto px-4 pt-6">
+    <h2 class="text-xl font-bold mb-2">POST /user/reserve</h2>
+    <p class="px-4 py-2">Creates a new reservation in the system.</p>
+    <div class="px-4 pt-6">
+        <h3 class="text-lg font-bold mb-2">Parameters</h3>
+    <div class="table-responsive">
+      <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">Name</th>
+                    <th class="px-4 py-2">Data Type</th>
+                    <th class="px-4 py-2">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border px-4 py-2">date</td>
+                    <td class="border px-4 py-2">Date</td>
+                    <td class="border px-4 py-2">The date of the reservation</td>
+                </tr>
+                <tr>
+                    <td class="border px-4 py-2">city</td>
+                    <td class="border px-4 py-2">String</td>
+                    <td class="border px-4 py-2">The city where the reservation takes place</td>
+                </tr>
+                <tr>
+                    <td class="border px-4 py-2">item_id</td>
+                    <td class="border px-4 py-2">Integer</td>
+                    <td class="border px-4 py-2">Item_id of the class user wants to reserve</td>
+                </tr>
+                    
+            </tbody>
+        </table>
+    </div>
+    <div class="px-4 pt-6">
+        <h3 class="text-lg font-bold mb-2">Response</h3>
+        <table class="table-auto w-full">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">Status Code</th>
+                    <th class="px-4 py-2">Response Body</th>
+                    <th class="px-4 py-2">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border px-4 py-2"><code>201</code></td>
+                    <td class="border px-4 py-2 font-bold text-sm">
+                        <code>
+                          {
+                              "id": 17,
+                              "item_id": 2,
+                              "user_id": 1,
+                              "date": "2023-11-11",
+                              "city": "Berlin",
+                              "created_at": "2023-04-13T06:26:13.673Z",
+                              "updated_at": "2023-04-13T06:26:13.673Z"
+                            }
+                        </code>
+                    </td>
+                    <td class="border px-4 py-2">The newly created reservation</td>
+                </tr>
+                                <tr>
+                    <td class="border px-4 py-2"><code>422</code></td>
+                    <td class="border px-4 py-2 font-bold text-sm">
+                        <code>
+                            {
+                                    "date": [
+                                        "can't be blank"
+                                    ]
+                            }
+                        </code>
+                    </td>
+                    <td class="border px-4 py-2">Unsuccessful due to validation errors</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  <div class="px-4 pt-6">
+    <h3 class="text-2xl font-bold mb-2">Example Request</h3>
+    <div class="card bg-dark border-0 rounded-xl mx-4 my-6">
+      <h3 class="card-header bg-white text-dark font-bold">Ruby</h3>
+      <div class="card-body bg-white rounded-xl">
+        <pre class="m-0 bg-light">
+          <code class="text-sm  max-h-80 m-0">
+               require 'net/http'
+                require 'json'
+
+                uri = URI('http://127.0.0.1:3000/api/v1/user/reserve')
+                user_authenticated = true # replace with your authentication logic
+                item_id = 123 # replace with the item_id received in the request
+                valid_parameters = true # replace with your parameter validation logic
+
+                if !user_authenticated
+                  puts "User is not authenticated, sending 401 Unauthorized error"
+                  response = Net::HTTPUnauthorized.new(1.0, 'Unauthorized')
+                elsif valid_parameters
+                  puts "User is authenticated and parameters are valid, reserving item for user"
+                  data = { "item_id": item_id, "class": "class_name" } # replace with the required parameters
+                  response = Net::HTTP.post(uri, data.to_json, 'Content-Type' => 'application/json')
+                  if response.code == '201'
+                    puts "Item reserved for user with status code 201"
+                  else
+                    puts "Error reserving item: #{response.body}"
+                  end
+                else
+                  puts "Invalid parameters, sending 422 Unprocessable Entity error"
+                  response = Net::HTTPUnprocessableEntity.new(1.0, 'Unprocessable Entity')
+                end
+
+                puts response.code
+            
+
+          </code>
+        </pre>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+  </section>
+  </div>s
+</div>

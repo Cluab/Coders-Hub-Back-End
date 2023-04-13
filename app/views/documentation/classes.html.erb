@@ -1,0 +1,481 @@
+<div class="home pt-8items-center ml-60 p-4 h-screen">
+  <%= render partial: "documentation/navigation" %>
+    <div class="d-flex" style= "margin-top:100px">
+
+  <section class="max-w-[800px] self-start flex flex-col">
+      <h1 class="text-3xl font-bold mb-4">Classes Endpoints</h1>
+
+<div class="container mt-5">
+  <h2 class="text-xl font-bold mb-2">GET api/v1/items</h2>
+  <p class="px-4 py-2">Returns a list of all classes.</p>
+
+  <div class="px-4 pt-6">
+    <h3 class="text-2xl font-bold mb-2">Response</h3>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="px-4 py-2">Status Code</th>
+            <th class="px-4 py-2">Response Body</th>
+            <th class="px-4 py-2">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border px-4 py-2"><code>200</code></td>
+            <td class="border px-4 py-2 font-weight-bold text-sm">
+              <code>
+   {
+        "id": 1,
+        "name": "Front End Mentor",
+        "description": "Clear your doubts in front end developement",
+        "photo": "https://dashboard.microverse.org/assets/icon-white-6545162e585bbcd21acdfc30fbb9763ac2a42226c6a436f234a7bc370d4bf50f.png",
+        "price": "20.0",
+        "mentor_name": "John Doe",
+        "duration": "2hours",
+        "created_at": "2023-04-05T10:02:57.205Z",
+        "updated_at": "2023-04-05T10:02:57.205Z"
+    },
+    {
+        "id": 2,
+        "name": "Back End ",
+        "description": "Back End Mentor ",
+        "photo": "https://th.bing.com/th/id/OIP.o9eTuz1Rj0-O6uROU9xoFAHaHa?w=173&h=180&c=7&r=0&o=5&pid=1.7",
+        "price": "20.0",
+        "mentor_name": "Halle",
+        "duration": "3 hours",
+        "created_at": "2023-04-11T09:01:11.921Z",
+        "updated_at": "2023-04-11T09:01:11.921Z"
+    },
+        <br>
+    <br>
+    {
+        "id": 3,
+        "name": "Data Science",
+        "description": "Cutting Edge help for dat SAcience",
+        "photo": "https://th.bing.com/th/id/OIP.PZp47W_mKqXubp_WHAksygHaDI?w=345&h=148&c=7&r=0&o=5&dpr=2&pid=1.7",
+        "price": "30.0",
+        "mentor_name": "Barry",
+        "duration": "4 Hours",
+        "created_at": "2023-04-12T03:49:20.888Z",
+        "updated_at": "2023-04-12T03:49:20.888Z"
+    },
+    <br>
+    <br>
+    {
+        "id": 4,
+        "name": "Cyber Security",
+        "description": "A cybersecurity mentor can help guide and teach individuals interested in pursuing a career in cybersecurity, and also provide insights and advice on the latest trends and threats in the field. With the increasing importance of cybersecurity in today's world, having a knowledgeable and experienced mentor can be invaluable in developing the necessary skills and expertise.",
+        "photo": "https://th.bing.com/th/id/R.562e953428bb87cc78a419ce0fcf38fe?rik=UPUZCnWciDmEQQ&pid=ImgRaw&r=0",
+        "price": "35.0",
+        "mentor_name": "Ron weasly",
+        "duration": "4 hours",
+        "created_at": "2023-04-13T03:47:03.631Z",
+        "updated_at": "2023-04-13T03:47:03.631Z"
+    }
+              </code>
+            </td>
+            <td class="border px-4 py-2">A list of all classes in the database</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="px-4 pt-6">
+    <h3 class="text-2xl font-bold mb-2">Example Request</h3>
+    <div class="card bg-dark border-0 rounded-xl mx-4 my-6">
+      <h3 class="card-header bg-white text-dark font-bold">Ruby</h3>
+      <div class="card-body bg-white rounded-xl">
+        <pre class="m-0 bg-light">
+          <code class="text-sm  max-h-80 m-0">
+            require 'net/http'
+            require 'json'
+
+            url = URI('http://127.0.0.1:3000/api/v1/items')
+
+            http = Net::HTTP.new(url.host, url.port)
+
+            request = Net::HTTP::Get.new(url)
+
+            response = http.request(request)
+
+            if response.code == '200'
+              data = JSON.parse(response.body)
+              puts data
+              # handle the response data here
+            else
+              puts "Error: #{response.code} #{response.message}"
+              # handle the error here
+            end
+          </code>
+        </pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mx-auto px-4 pt-6">
+    <h2 class="text-xl font-bold mb-2">GET api/v1/items/:id</h2>
+    <p class="px-4 py-2">Returns a single class by an ID.</p>
+    <div class="px-4 pt-6">
+        <h3 class="text-lg font-bold mb-2">Parameters</h3>
+    <div class="table-responsive">
+      <table class="table">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">Name</th>
+                    <th class="px-4 py-2">Data Type</th>
+                    <th class="px-4 py-2">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border px-4 py-2">id</td>
+                    <td class="border px-4 py-2">Integer</td>
+                    <td class="border px-4 py-2">ID of the class</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="px-4 pt-6">
+        <h3 class="text-lg font-bold mb-2">Response</h3>
+        <table class="table-auto w-full">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">Status Code</th>
+                    <th class="px-4 py-2">Response Body</th>
+                    <th class="px-4 py-2">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border px-4 py-2"><code>200</code></td>
+                    <td class="border px-4 py-2 font-bold text-sm">
+                        <code>
+                          {
+                                "id": 1,
+                                "name": "Front End Mentor",
+                                "description": "Clear your doubts in front end developement",
+                                "photo": "https://dashboard.microverse.org/assets/icon-white-6545162e585bbcd21acdfc30fbb9763ac2a42226c6a436f234a7bc370d4bf50f.png",
+                                "price": "20.0",
+                                "mentor_name": "John Doe",
+                                "duration": "2hours",
+                                "created_at": "2023-04-05T10:02:57.205Z",
+                                "updated_at": "2023-04-05T10:02:57.205Z"
+                            }
+                        </code>
+                    </td>
+                    <td class="border px-4 py-2">The class of the specific ID</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  <div class="px-4 pt-6">
+    <h3 class="text-2xl font-bold mb-2">Example Request</h3>
+    <div class="card bg-dark border-0 rounded-xl mx-4 my-6">
+      <h3 class="card-header bg-white text-dark font-bold">Ruby</h3>
+      <div class="card-body bg-white rounded-xl">
+        <pre class="m-0 bg-light">
+          <code class="text-sm  max-h-80 m-0">
+                require 'net/http'
+                require 'json'
+
+                item_id = 1 # replace with the ID of the item you want to retrieve
+                url = URI("http://127.0.0.1:3000/api/v1/items/#{item_id}")
+
+                http = Net::HTTP.new(url.host, url.port)
+                request = Net::HTTP::Get.new(url)
+
+                response = http.request(request)
+
+                if response.code == '200'
+                  data = JSON.parse(response.body)
+                  # handle the response data here
+                  puts data
+                else
+                  puts "Error: #{response.code} #{response.message}"
+                  # handle the error here
+                end
+
+          </code>
+        </pre>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="container mx-auto px-4 pt-6">
+    <h2 class="text-xl font-bold mb-2">POST /items</h2>
+    <p class="px-4 py-2">Creates a new class in the database.</p>
+    <div class="px-4 pt-6">
+        <h3 class="text-lg font-bold mb-2">Parameters</h3>
+    <div class="table-responsive">
+      <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">Name</th>
+                    <th class="px-4 py-2">Data Type</th>
+                    <th class="px-4 py-2">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border px-4 py-2">name</td>
+                    <td class="border px-4 py-2">String</td>
+                    <td class="border px-4 py-2">The name of the new class</td>
+                </tr>
+                                <tr>
+                    <td class="border px-4 py-2">photo</td>
+                    <td class="border px-4 py-2">String</td>
+                    <td class="border px-4 py-2">The link of the image</td>
+                </tr>
+                                <tr>
+                    <td class="border px-4 py-2">description</td>
+                    <td class="border px-4 py-2">String</td>
+                    <td class="border px-4 py-2">The description of the new class</td>
+                </tr>
+                    
+                                <tr>
+                    <td class="border px-4 py-2">price</td>
+                    <td class="border px-4 py-2">Integer</td>
+                    <td class="border px-4 py-2">The price of the new class</td>
+                </tr>
+                                </tr>
+                                <tr>
+                    <td class="border px-4 py-2">mentor_name</td>
+                    <td class="border px-4 py-2">String</td>
+                    <td class="border px-4 py-2">The name of the mentor</td>
+                </tr>
+                                </tr>
+                                <tr>
+                    <td class="border px-4 py-2">duration</td>
+                    <td class="border px-4 py-2">String</td>
+                    <td class="border px-4 py-2">Duration of the Class</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="px-4 pt-6">
+        <h3 class="text-lg font-bold mb-2">Response</h3>
+        <table class="table-auto w-full">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">Status Code</th>
+                    <th class="px-4 py-2">Response Body</th>
+                    <th class="px-4 py-2">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border px-4 py-2"><code>201</code></td>
+                    <td class="border px-4 py-2 font-bold text-sm">
+                        <code>
+                          {
+                            "id": 5,
+                            "name": "Pentesting",
+                            "description": "Cutting Edge mentorship",
+                            "photo": "https://th.bing.com/th/id/OIP.O68q9omaO0tgC4l4l6fsbQHaE8?pid=ImgDet%26rs=1",
+                            "price": "20.0",
+                            "mentor_name": "Halle Berry",
+                            "duration": "3 hours",
+                            "created_at": "2023-04-13T05:44:32.024Z",
+                            "updated_at": "2023-04-13T05:44:32.024Z"
+                            }
+                        </code>
+                    </td>
+                    <td class="border px-4 py-2">The newly created Class</td>
+                </tr>
+                                <tr>
+                    <td class="border px-4 py-2"><code>422</code></td>
+                    <td class="border px-4 py-2 font-bold text-sm">
+                        <code>
+                            {
+                                "errors": [
+                                    "Name can't be blank",
+                                    "Name is too short (minimum is 3 characters)"
+                                ]
+                            }
+                        </code>
+                    </td>
+                    <td class="border px-4 py-2">Unsuccessful due to validation errors</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  <div class="px-4 pt-6">
+    <h3 class="text-2xl font-bold mb-2">Example Request</h3>
+    <div class="card bg-dark border-0 rounded-xl mx-4 my-6">
+      <h3 class="card-header bg-white text-dark font-bold">Ruby</h3>
+      <div class="card-body bg-white rounded-xl">
+        <pre class="m-0 bg-light">
+          <code class="text-sm  max-h-80 m-0">
+                require 'net/http'
+                require 'json'
+
+          require 'net/http'
+          require 'json'
+
+          url = URI('https://example.com/users/v1')
+          headers = {
+          'Authorization' => 'Bearer <DoorKeeper Token>'
+            }
+
+            require 'net/http'
+            require 'uri'
+            require 'json'
+
+            url = URI('http://127.0.0.1:3000/api/v1/items')
+            data = {
+              "name": "Pentesting",
+              "description": "Cutting Edge mentorship",
+              "photo": "https://th.bing.com/th/id/OIP.O68q9omaO0tgC4l4l6fsbQHaE8?pid=ImgDet%26rs=1",
+              "price": 20,
+              "mentor_name": "Halle Berry",
+              "duration": "3 hours"
+            }
+            headers = {
+              'Content-Type' => 'application/json',
+              'Authorization' => 'Bearer <Token>'
+            }
+
+            http = Net::HTTP.new(url.host, url.port)
+            http.use_ssl = true # enable HTTPS if necessary
+
+            request = Net::HTTP::Post.new(url, headers)
+            request.body = data.to_json
+
+            response = http.request(request)
+
+            if response.code == '201'
+              response_body = JSON.parse(response.body)
+              # handle the response data here
+            else
+              puts "Error: #{response.code} #{response.message}"
+              # handle the error here
+            end
+            
+
+          </code>
+        </pre>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="container mx-auto px-4 pt-6">
+    <h2 class="text-xl font-bold mb-2">DELETE /items/:id</h2>
+    <p class="px-4 py-2">Deletes a Class  from the database</p>
+    <div class="px-4 pt-6">
+        <h3 class="text-lg font-bold mb-2">Parameters</h3>
+    <div class="table-responsive">
+      <table class="table">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">Name</th>
+                    <th class="px-4 py-2">Data Type</th>
+                    <th class="px-4 py-2">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border px-4 py-2">id</td>
+                    <td class="border px-4 py-2">Integer</td>
+                    <td class="border px-4 py-2">ID of the class to be deleted</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="px-4 pt-6">
+        <h3 class="text-lg font-bold mb-2">Response</h3>
+        <table class="table-auto w-full">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">Status Code</th>
+                    <th class="px-4 py-2">Response Body</th>
+                    <th class="px-4 py-2">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border px-4 py-2"><code>200</code></td>
+                    <td class="border px-4 py-2 font-bold text-sm">
+                        <code>
+                            {
+                                "message": "Item deleted"
+                            }
+                        </code>
+                    </td>
+                    <td class="border px-4 py-2">The specific Item is deleted</td>
+                </tr>
+                <tr>
+                    <td class="border px-4 py-2"><code>404</code></td>
+                    <td class="border px-4 py-2 font-bold text-sm">
+                        <code>
+                            {
+                               "status": 404,
+                               "error": "Not Found",
+                            }
+                        </code>
+                    </td>
+                    <td class="border px-4 py-2">The class with the specified ID could not be found</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  <div class="px-4 pt-6">
+    <h3 class="text-2xl font-bold mb-2">Example Request</h3>
+    <div class="card bg-dark border-0 rounded-xl mx-4 my-6">
+      <h3 class="card-header bg-white text-dark font-bold">Ruby</h3>
+      <div class="card-body bg-white rounded-xl">
+        <pre class="m-0 bg-light">
+          <code class="text-sm  max-h-80 m-0">
+require 'net/http'
+          require 'json'
+
+          url = URI('https://example.com/users/v1')
+          headers = {
+          'Authorization' => 'Bearer <DoorKeeper Token>'
+            }
+
+                require 'net/http'
+
+                items_id = 123 # Replace with the ID of the item you want to delete
+                url = URI("http://127.0.0.1:3000/api/v1/items/#{items_id}")
+                headers = {
+                  'Authorization' => 'Bearer Token'
+                }
+
+                http = Net::HTTP.new(url.host, url.port)
+                http.use_ssl = true # enable HTTPS if necessary
+
+                request = Net::HTTP::Delete.new(url, headers)
+
+                response = http.request(request)
+
+                case response
+                when Net::HTTPSuccess
+                  puts 'Item deleted successfully'
+                  # Do something on success
+                when Net::HTTPUnauthorized
+                  puts 'Not authenticated'
+                  # Handle authentication error
+                when Net::HTTPNotFound
+                  puts 'Item not found'
+                  # Handle item not found error
+                else
+                  puts "Error deleting item: #{response.code} #{response.message}"
+                  # Handle other errors
+                end
+          </code>
+        </pre>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+  </section>
+  </div>
+</div>
